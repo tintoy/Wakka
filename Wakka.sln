@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wakka", "Wakka.csproj", "{2F5FE17A-4924-4556-B6D3-9B8151962F41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Analysis", "Code Analysis", "{45B96DDA-E1F4-4E2B-B534-A3EC16E02540}"
+	ProjectSection(SolutionItems) = preProject
+		tintoy.ruleset = tintoy.ruleset
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F5FE17A-4924-4556-B6D3-9B8151962F41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5FE17A-4924-4556-B6D3-9B8151962F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5FE17A-4924-4556-B6D3-9B8151962F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5FE17A-4924-4556-B6D3-9B8151962F41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
