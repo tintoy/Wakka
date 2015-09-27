@@ -29,10 +29,14 @@ namespace Wakka
 			IContainer container = IocConfiguration.BuildContainer(actorSystemName: "Wakka");
 			app.UseAutofacMiddleware(container);
 
-			HttpConfiguration webApiConfiguration = new HttpConfiguration();
-			webApiConfiguration.DependencyResolver = new AutofacWebApiDependencyResolver(container); // Only used when mapping attribute routes.
-
+			HttpConfiguration webApiConfiguration = new HttpConfiguration
+			{
+				// Only used when mapping attribute routes.
+				DependencyResolver = new AutofacWebApiDependencyResolver(container)
+			};
 			app.UseAutofacWebApi(webApiConfiguration); // Share OWIN lifetime scope.
+
+			webApiConfiguration.MapHttpAttributeRoutes();
 			webApiConfiguration.EnsureInitialized();
 
 			app.UseWebApi(webApiConfiguration);

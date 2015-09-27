@@ -1,8 +1,10 @@
 ﻿using Akka.Actor;
 using Autofac;
+using Autofac.Integration.WebApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +15,11 @@ namespace Wakka
 	/// </summary>
 	public static class IocConfiguration
 	{
+		/// <summary>
+		///		This assembly.
+		/// </summary>
+		static readonly Assembly ThisAssembly = typeof(IocConfiguration).Assembly;
+
 		/// <summary>
 		///		Build a container with required components and services.
 		/// </summary>
@@ -31,10 +38,16 @@ namespace Wakka
 
 			containerBuilder
 				.Register(
-					context => ActorSystem.Create(actorSystemName)
+					context => ActorSystem.Create(
+						actorSystemName,
+						AkkaConfiguration.Basic()
+					)
 				)
-				.Named<ActorSystem>(actorSystemName)
+				.As<ActorSystem>()
 				.SingleInstance();
+
+			containerBuilder
+				.RegisterApiControllers(ThisAssembly);
 
 			return containerBuilder.Build();
 		}
